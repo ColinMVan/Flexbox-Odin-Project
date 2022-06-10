@@ -11,6 +11,10 @@ $primary: #f9faf8;
 $grayish: hsl(0, 0%, 80%);
 $pop: #3882f6;
 
+@mixin smoothTransition($property) {
+  transition: $property 200ms ease-in;
+}
+
 header {
   background-color: #1f2937;
   color: $primary;
@@ -73,6 +77,12 @@ header {
         padding: 1em 2em;
         border-radius: 15px;
         width: fit-content;
+        @include smoothTransition(background-color);
+
+        &:hover {
+          outline: 2px solid $pop;
+          background-color: transparent;
+        }
       }
     }
 
@@ -97,21 +107,18 @@ header {
   }
 
   .boxes {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 17%);
     justify-content: center;
-    gap: 3rem;
-    background-color: $primary;
-    width: 60%;
+    column-gap: 3rem;
 
-    .box-content {
+    .box {
       text-align: center;
-      .box {
-        border: 2px solid $pop;
-        padding: 3em;
-        aspect-ratio: 1;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-      }
+      border: 2px solid $pop;
+      padding: 3em;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      margin-bottom: 1rem;
     }
   }
 }

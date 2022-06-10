@@ -63,6 +63,11 @@ header .header__content .header__text a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  transition: background-color 200ms ease-in;
+}
+header .header__content .header__text a:hover {
+  outline: 2px solid #3882f6;
+  background-color: transparent;
 }
 header .header__content .img {
   background-color: hsl(0deg, 0%, 80%);
@@ -82,16 +87,14 @@ header .header__content .img {
   color: #1f2937;
 }
 .box-section .boxes {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 17%);
   justify-content: center;
-  gap: 3rem;
-  background-color: #f9faf8;
-  width: 60%;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
 }
-.box-section .boxes .box-content {
+.box-section .boxes .box {
   text-align: center;
-}
-.box-section .boxes .box-content .box {
   border: 2px solid #3882f6;
   padding: 3em;
   aspect-ratio: 1;
